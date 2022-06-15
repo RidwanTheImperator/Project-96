@@ -1,17 +1,17 @@
 
 //ADD YOUR FIREBASE LINKS HERE
 const firebaseConfig = {
-      apiKey: "AIzaSyA0KHtmZ9jVl_67Zk7XaMcGbmxypagUPFc",
-      authDomain: "rid-s-chat-apper.firebaseapp.com",
-      databaseURL: "https://rid-s-chat-apper-default-rtdb.firebaseio.com",
-      projectId: "rid-s-chat-apper",
-      storageBucket: "rid-s-chat-apper.appspot.com",
-      messagingSenderId: "60916336100",
-      appId: "1:60916336100:web:ac1fdf7f11d52aa2a033f1"
+      apiKey: "AIzaSyAhp1d2gQycN19v9DyPCxkpNI-osVQ3LRk",
+      authDomain: "rid-s-chat-app.firebaseapp.com",
+      databaseURL: "https://rid-s-chat-app-default-rtdb.firebaseio.com",
+      projectId: "rid-s-chat-app",
+      storageBucket: "rid-s-chat-app.appspot.com",
+      messagingSenderId: "277978332781",
+      appId: "1:277978332781:web:34fe1b3da2db7433208964"
     };
-
+    
     // Initialize Firebase
-    firebase.initializeApp(firebaseConfig);
+      firebase.initializeApp(firebaseConfig);
 
     user_name = localStorage.getItem("user")
     document.getElementById("user_n").innerHTML="Welcome "+user_name+"!"
@@ -28,6 +28,8 @@ const firebaseConfig = {
       firebase.database().ref("/").child(addroomer).update({
             purp : "Da-juker"
       })
+      localStorage.setItem("room_name", addroomer);
+      window.location = "kwitter_page.html"
     }
 
 function getData() {
@@ -35,7 +37,7 @@ function getData() {
             document.getElementById("ouput").innerHTML = "";snapshot.forEach(function(childSnapshot) {childKey  = childSnapshot.key;
        Room_names = childKey;
       //Start code
-      row = "<div class='room_name' id='"+Room_names+"onclick='chat_page(this.id)'>"+Room_names+"</div><br>"
+      row = "<div class='room_name' id="+Room_names+" onclick='chat_page(this.id)'>"+Room_names+"</div><br>"
       document.getElementById("ouput").innerHTML+=row
       //End code
       });});}

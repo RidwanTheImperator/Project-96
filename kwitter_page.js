@@ -7,8 +7,9 @@ const firebaseConfig = {
     messagingSenderId: "277978332781",
     appId: "1:277978332781:web:34fe1b3da2db7433208964"
   };
-
-  firebase.initializeApp(firebaseConfig);
+  
+  // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
 
 
 function logout() {
@@ -19,7 +20,7 @@ function logout() {
 
 user_name = localStorage.getItem("user")
     room_name = localStorage.getItem("room_name")
-
+    console.log(room_name)
     function send () {
         msg = document.getElementById("inpute").value
         firebase.database().ref(room_name).push({
